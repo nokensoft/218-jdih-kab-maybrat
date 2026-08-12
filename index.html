@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JDIH Kabupaten Maybrat — Jaringan Dokumentasi dan Informasi Hukum</title>
+<meta name="description" content="Portal Jaringan Dokumentasi dan Informasi Hukum (JDIH) Kabupaten Maybrat, Provinsi Papua Barat Daya. Diselenggarakan oleh Bagian Hukum Sekretariat Daerah." />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          paper: "#F7F8F5",
+          ink: "#1C1F1D",
+          muted: "#5B6660",
+          line: "#DEE4DD",
+          forest: {
+            50: "#EEF3F0",
+            100: "#D9E4DC",
+            200: "#B3C9B9",
+            300: "#82A88C",
+            400: "#4F7D5D",
+            500: "#2E5A40",
+            600: "#234A34",
+            700: "#1F3D2E",
+            800: "#16302A",
+            900: "#0F211C",
+          },
+          clay: {
+            50: "#F7EFE7",
+            100: "#F1E4D8",
+            300: "#C79A6E",
+            500: "#8B5E3C",
+            600: "#764E31",
+          },
+        },
+        fontFamily: {
+          display: ["Fraunces", "serif"],
+          body: ["Inter", "sans-serif"],
+          mono: ["IBM Plex Mono", "monospace"],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-padding-top: 84px; }
+  body { background-color: #F7F8F5; color: #1C1F1D; }
+  .font-display { font-family: 'Fraunces', serif; }
+
+  ::selection { background-color: #1F3D2E; color: #F7F8F5; }
+
+  *:focus-visible {
+    outline: 2px solid #1F3D2E;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .contour-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .ledger-row { border-bottom: 1px solid #DEE4DD; }
+  .ledger-row:last-child { border-bottom: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .rise-in { animation: riseIn 0.7s ease-out both; }
+  .rise-in-delay-1 { animation: riseIn 0.7s ease-out 0.1s both; }
+  .rise-in-delay-2 { animation: riseIn 0.7s ease-out 0.2s both; }
+  .rise-in-delay-3 { animation: riseIn 0.7s ease-out 0.3s both; }
+
+  [x-cloak] { display: none !important; }
+</style>
+</head>
+
+<body class="font-body text-ink antialiased">
+
+<!-- ============ NAVBAR ============ -->
+<header x-data="{ open: false, scrolled: false }" x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 12)"
+        :class="scrolled ? 'shadow-sm border-line' : 'border-transparent'"
+        class="fixed top-0 inset-x-0 z-50 bg-paper/90 backdrop-blur border-b transition-colors">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="h-[72px] flex items-center justify-between">
+
+      <a href="#beranda" class="flex items-center gap-3 group">
+        <span class="w-10 h-10 rounded-full bg-forest-700 text-paper flex items-center justify-center font-display font-semibold text-sm">
+          KM
+        </span>
+        <span class="leading-tight">
+          <span class="block font-display text-lg font-semibold tracking-tight text-forest-800">JDIH Maybrat</span>
+          <span class="block text-[11px] uppercase tracking-[0.14em] text-muted">Bagian Hukum Setda</span>
+        </span>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-9 font-medium text-sm text-ink/80">
+        <a href="#beranda" class="hover:text-forest-700 transition-colors">Beranda</a>
+        <a href="#produk-hukum" class="hover:text-forest-700 transition-colors">Produk Hukum</a>
+        <a href="#profil" class="hover:text-forest-700 transition-colors">Profil</a>
+        <a href="#statistik" class="hover:text-forest-700 transition-colors">Statistik</a>
+        <a href="#blog" class="hover:text-forest-700 transition-colors">Blog</a>
+        <a href="#kontak" class="hover:text-forest-700 transition-colors">Kontak</a>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="https://jdihn.go.id" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-forest-700 border border-forest-700/30 rounded-full px-4 py-2 hover:bg-forest-700 hover:text-paper transition-colors">
+          <i class="fa-solid fa-arrow-up-right-from-square text-[11px]"></i>
+          Portal JDIHN
+        </a>
+      </div>
+
+      <button @click="open = !open" class="lg:hidden w-10 h-10 flex items-center justify-center text-forest-800" aria-label="Buka menu">
+        <i class="fa-solid" :class="open ? 'fa-xmark text-xl' : 'fa-bars text-lg'"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div x-show="open" x-cloak @click.outside="open = false"
+       x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+       class="lg:hidden bg-paper border-t border-line">
+    <nav class="max-w-6xl mx-auto px-5 py-4 flex flex-col gap-1 text-sm font-medium">
+      <a @click="open=false" href="#beranda" class="px-3 py-2.5 rounded-lg hover:bg-forest-50">Beranda</a>
+      <a @click="open=false" href="#produk-hukum" class="px-3 py-2.5 rounded-lg hover:bg-forest-50">Produk Hukum</a>
+      <a @click="open=false" href="#profil" class="px-3 py-2.5 rounded-lg hover:bg-forest-50">Profil</a>
+      <a @click="open=false" href="#statistik" class="px-3 py-2.5 rounded-lg hover:bg-forest-50">Statistik</a>
+      <a @click="open=false" href="#berita" class="px-3 py-2.5 rounded-lg hover:bg-forest-50">Berita</a>
+      <a @click="open=false" href="#kontak" class="px-3 py-2.5 rounded-lg hover:bg-forest-50">Kontak</a>
+      <a href="https://jdihn.go.id" target="_blank" rel="noopener" class="mt-2 px-3 py-2.5 rounded-lg bg-forest-700 text-paper text-center">Portal JDIHN</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="beranda" class="relative pt-[72px] h-[450px] flex items-center justify-center overflow-hidden border-b border-line bg-cover bg-center" style="background-image: url('./img/danau.png');">
+  <!-- Overlay opsional agar teks lebih terbaca jika background terlalu terang/ramai -->
+  <div class="absolute inset-0 bg-dark/70" aria-hidden="true"></div>
+
+  <div class="contour-bg absolute inset-0 pointer-events-none" aria-hidden="true">
+    <svg class="absolute -right-24 -top-20 w-[560px] h-[560px] opacity-[0.09]" viewBox="0 0 400 400" fill="none">
+      <path d="M20 300 Q100 250 140 280 T260 260 T380 300" stroke="#1F3D2E" stroke-width="1.5"/>
+      <path d="M0 250 Q90 200 150 235 T280 210 T400 250" stroke="#1F3D2E" stroke-width="1.5"/>
+      <path d="M10 200 Q110 150 160 190 T300 160 T400 195" stroke="#1F3D2E" stroke-width="1.5"/>
+      <path d="M0 150 Q120 95 170 140 T310 110 T400 145" stroke="#1F3D2E" stroke-width="1.5"/>
+      <path d="M20 100 Q130 45 180 90 T320 60 T400 95" stroke="#1F3D2E" stroke-width="1.5"/>
+      <path d="M40 55 Q140 5 190 45 T330 20 T400 50" stroke="#1F3D2E" stroke-width="1.5"/>
+    </svg>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 relative text-center flex flex-col items-center">
+    <!-- <p class="rise-in inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-clay-600 mb-3">
+      <span class="w-6 h-px bg-clay-500"></span>
+      Sekretariat Daerah · Kabupaten Maybrat · Papua Barat Daya
+      <span class="w-6 h-px bg-clay-500"></span>
+    </p>
+
+    <h1 class="rise-in-delay-1 font-display text-3xl sm:text-4xl lg:text-[2.8rem] leading-[1.08] font-semibold text-forest-800 max-w-3xl">
+      Jaringan Dokumentasi dan
+      <span class="italic font-medium text-forest-500">Informasi Hukum</span>
+      Kabupaten Maybrat
+    </h1> -->
+
+    <p class="rise-in-delay-2 mt-4 text-sm sm:text-base text-white max-w-2xl leading-relaxed">
+      Satu pintu resmi untuk mencari, membaca, dan mengunduh produk hukum daerah — Peraturan Daerah, Peraturan Bupati, Keputusan Bupati, hingga Surat Edaran — dikelola oleh Bagian Hukum Sekretariat Daerah Kabupaten Maybrat.
+    </p>
+
+    <!-- Search -->
+    <form class="rise-in-delay-3 mt-6 max-w-2xl w-full" onsubmit="return false">
+      <label for="search" class="sr-only">Cari produk hukum</label>
+      <div class="flex items-center gap-3 bg-white border border-line rounded-2xl p-2 pl-5 shadow-sm focus-within:border-forest-500 transition-colors">
+        <i class="fa-solid fa-magnifying-glass text-white"></i>
+        <input id="search" type="text" placeholder="Cari nama, nomor, atau tahun peraturan…"
+               class="flex-1 bg-transparent outline-none text-sm sm:text-base placeholder:text-white/70 py-1.5" />
+        <button type="submit" class="shrink-0 bg-forest-700 hover:bg-forest-800 text-paper text-sm font-semibold rounded-xl px-5 py-2 transition-colors">
+          Cari
+        </button>
+      </div>
+      <div class="mt-3 flex flex-wrap justify-center items-center gap-2 text-xs">
+        <span class="text-white mr-1">Pencarian populer:</span>
+        <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 transition-colors">APBD</a>
+        <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 transition-colors">RTRW</a>
+        <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 transition-colors">Organisasi Perangkat Daerah</a>
+        <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 transition-colors">Dana Kampung</a>
+      </div>
+    </form>
+
+    <!-- quick stats strip -->
+    <dl class="mt-8 grid grid-cols-3 max-w-xl w-full gap-6 border-t border-line pt-6">
+      <div>
+        <dt class="text-xs uppercase tracking-wide text-white">Total Dokumen</dt>
+        <dd class="font-display text-xl sm:text-2xl font-semibold text-white mt-1">312</dd>
+      </div>
+      <div>
+        <dt class="text-xs uppercase tracking-wide text-white">Perda Berlaku</dt>
+        <dd class="font-display text-xl sm:text-2xl font-semibold text-white mt-1">96</dd>
+      </div>
+      <div>
+        <dt class="text-xs uppercase tracking-wide text-white">Diperbarui</dt>
+        <dd class="font-display text-xl sm:text-2xl font-semibold text-white mt-1">2026</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+
+
+
+<!-- ============ KATEGORI ============ -->
+<section class="py-16 sm:py-20 border-b border-line" x-data>
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="flex items-end justify-between gap-6 flex-wrap mb-10">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-clay-600 mb-3">Kategori</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold text-forest-800">Jelajahi Produk Hukum</h2>
+      </div>
+      <p class="text-sm text-muted max-w-sm">Empat jenis produk hukum daerah yang tersedia secara terbuka bagi aparatur dan masyarakat.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <a href="#produk-hukum" @click="$store.catalog.tab = 'perda'" class="cat-card group border border-line bg-white rounded-2xl p-6 hover:border-forest-500 hover:shadow-md transition-all">
+        <div class="w-11 h-11 rounded-xl bg-forest-50 text-forest-700 flex items-center justify-center mb-5 group-hover:bg-forest-700 group-hover:text-paper transition-colors">
+          <i class="fa-solid fa-scale-balanced"></i>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-forest-800">Peraturan Daerah</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">Produk hukum tertinggi di daerah, ditetapkan bersama DPRD Kabupaten Maybrat.</p>
+        <span class="mt-4 inline-block text-xs font-mono text-clay-600">96 dokumen</span>
+      </a>
+
+      <a href="#produk-hukum" @click="$store.catalog.tab = 'perbup'" class="cat-card group border border-line bg-white rounded-2xl p-6 hover:border-forest-500 hover:shadow-md transition-all">
+        <div class="w-11 h-11 rounded-xl bg-forest-50 text-forest-700 flex items-center justify-center mb-5 group-hover:bg-forest-700 group-hover:text-paper transition-colors">
+          <i class="fa-solid fa-file-signature"></i>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-forest-800">Peraturan Bupati</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">Petunjuk pelaksanaan teknis atas kebijakan dan program Pemerintah Daerah.</p>
+        <span class="mt-4 inline-block text-xs font-mono text-clay-600">148 dokumen</span>
+      </a>
+
+      <a href="#produk-hukum" @click="$store.catalog.tab = 'kepbup'" class="cat-card group border border-line bg-white rounded-2xl p-6 hover:border-forest-500 hover:shadow-md transition-all">
+        <div class="w-11 h-11 rounded-xl bg-forest-50 text-forest-700 flex items-center justify-center mb-5 group-hover:bg-forest-700 group-hover:text-paper transition-colors">
+          <i class="fa-solid fa-stamp"></i>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-forest-800">Keputusan Bupati</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">Penetapan yang bersifat administratif, seperti pengangkatan dan penunjukan.</p>
+        <span class="mt-4 inline-block text-xs font-mono text-clay-600">54 dokumen</span>
+      </a>
+
+      <a href="#produk-hukum" @click="$store.catalog.tab = 'se'" class="cat-card group border border-line bg-white rounded-2xl p-6 hover:border-forest-500 hover:shadow-md transition-all">
+        <div class="w-11 h-11 rounded-xl bg-forest-50 text-forest-700 flex items-center justify-center mb-5 group-hover:bg-forest-700 group-hover:text-paper transition-colors">
+          <i class="fa-solid fa-envelope-open-text"></i>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-forest-800">Surat Edaran</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">Pemberitahuan dan arahan resmi kepada perangkat daerah dan instansi terkait.</p>
+        <span class="mt-4 inline-block text-xs font-mono text-clay-600">14 dokumen</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============ DAFTAR PRODUK HUKUM (LEDGER) ============ -->
+<section id="produk-hukum" class="py-16 sm:py-20 border-b border-line bg-white/60">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8"
+       x-data="{
+         get tab() { return $store.catalog.tab },
+         set tab(v) { $store.catalog.tab = v },
+         selectedPd: 'semua',
+         items: [
+           {kat:'perda', pd:'sekretariat', kode:'Perda No. 4 / 2025', judul:'Anggaran Pendapatan dan Belanja Daerah Kabupaten Maybrat Tahun Anggaran 2026', tahun:'2025', status:'Berlaku'},
+           {kat:'perda', pd:'pupr', kode:'Perda No. 2 / 2024', judul:'Rencana Tata Ruang Wilayah Kabupaten Maybrat Tahun 2024–2044', tahun:'2024', status:'Berlaku'},
+           {kat:'perbup', pd:'dinas-sosial', kode:'Perbup No. 18 / 2025', judul:'Petunjuk Pelaksanaan Pengelolaan Dana Otonomi Khusus Kampung', tahun:'2025', status:'Berlaku'},
+           {kat:'perbup', pd:'sekretariat', kode:'Perbup No. 11 / 2025', judul:'Kedudukan, Susunan Organisasi, dan Tata Kerja Perangkat Daerah', tahun:'2025', status:'Berlaku'},
+           {kat:'kepbup', pd:'sekretariat', kode:'Kepbup No. 220 / 2025', judul:'Penetapan Tim Pengelola JDIH Kabupaten Maybrat', tahun:'2025', status:'Berlaku'},
+           {kat:'perda', pd:'pendidikan', kode:'Perda No. 7 / 2023', judul:'Penyelenggaraan Pendidikan Dasar di Kabupaten Maybrat', tahun:'2023', status:'Berlaku'},
+           {kat:'se', pd:'kependudukan', kode:'SE No. 470 / 2025', judul:'Percepatan Pemutakhiran Data Kependudukan Tingkat Distrik', tahun:'2025', status:'Berlaku'},
+           {kat:'perbup', pd:'kesehatan', kode:'Perbup No. 5 / 2021', judul:'Standar Pelayanan Minimal Bidang Kesehatan', tahun:'2021', status:'Dicabut'}
+         ]
+       }">
+
+    <div class="flex items-end justify-between gap-6 flex-wrap mb-8">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-clay-600 mb-3">Register Dokumen</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold text-forest-800">Produk Hukum Terbaru</h2>
+      </div>
+
+      <!-- Dropdown Filters Group -->
+      <div class="flex flex-wrap gap-3">
+        <!-- Dropdown Filter Kategori -->
+        <div class="relative">
+          <select x-model="tab" class="appearance-none bg-white border border-line text-ink/80 text-sm font-medium rounded-xl px-4 py-2.5 pr-10 focus:outline-none focus:border-forest-500 shadow-sm transition-colors cursor-pointer">
+            <option value="semua">Semua Kategori</option>
+            <option value="perda">Perda</option>
+            <option value="perbup">Perbup</option>
+            <option value="kepbup">Kepbup</option>
+            <option value="se">SE</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-muted">
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </div>
+        </div>
+
+        <!-- Dropdown Filter Perangkat Daerah -->
+        <div class="relative">
+          <select x-model="selectedPd" class="appearance-none bg-white border border-line text-ink/80 text-sm font-medium rounded-xl px-4 py-2.5 pr-10 focus:outline-none focus:border-forest-500 shadow-sm transition-colors cursor-pointer">
+            <option value="semua">Semua Perangkat Daerah</option>
+            <option value="sekretariat">Sekretariat Daerah</option>
+            <option value="pupr">Dinas PUPR</option>
+            <option value="pendidikan">Dinas Pendidikan</option>
+            <option value="kesehatan">Dinas Kesehatan</option>
+            <option value="dinas-sosial">Dinas Sosial</option>
+            <option value="kependudukan">Dinas Dukcapil</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-muted">
+            <i class="fa-solid fa-chevron-down text-xs"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border border-line rounded-2xl bg-white overflow-hidden">
+      <!-- head row (desktop) -->
+      <div class="hidden sm:grid grid-cols-[170px_1fr_90px_110px_100px] gap-4 px-6 py-3 text-xs font-semibold uppercase tracking-wide text-muted bg-forest-50/60 ledger-row">
+        <span>Nomor</span>
+        <span>Judul</span>
+        <span>Tahun</span>
+        <span>Status</span>
+        <span class="text-right">Aksi</span>
+      </div>
+
+      <template x-for="item in items.filter(i => (tab === 'semua' || i.kat === tab) && (selectedPd === 'semua' || i.pd === selectedPd))" :key="item.kode">
+        <div class="ledger-row grid sm:grid-cols-[170px_1fr_90px_110px_100px] gap-2 sm:gap-4 px-6 py-5 items-center hover:bg-forest-50/40 transition-colors">
+          <span class="font-mono text-xs sm:text-[13px] text-clay-600" x-text="item.kode"></span>
+          <span class="font-display text-[15px] sm:text-base text-forest-900 leading-snug" x-text="item.judul"></span>
+          <span class="text-sm text-muted" x-text="item.tahun"></span>
+          <span>
+            <span :class="item.status === 'Berlaku' ? 'bg-forest-100 text-forest-700' : 'bg-clay-100 text-clay-600'"
+                  class="inline-block text-xs font-semibold px-2.5 py-1 rounded-full" x-text="item.status"></span>
+          </span>
+          <span class="flex sm:justify-end gap-3 text-forest-700">
+            <a href="#" class="hover:text-forest-900" title="Lihat dokumen" aria-label="Lihat dokumen"><i class="fa-solid fa-eye"></i></a>
+            <a href="#" class="hover:text-forest-900" title="Unduh PDF" aria-label="Unduh PDF"><i class="fa-solid fa-download"></i></a>
+          </span>
+        </div>
+      </template>
+
+      <div x-show="items.filter(i => (tab === 'semua' || i.kat === tab) && (selectedPd === 'semua' || i.pd === selectedPd)).length === 0" class="px-6 py-10 text-center text-sm text-muted">
+        Belum ada dokumen yang sesuai dengan filter tersebut.
+      </div>
+    </div>
+
+    <div class="mt-6 flex justify-center">
+      <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold text-forest-700 hover:text-forest-900">
+        Lihat seluruh produk hukum
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============ PROFIL ============ -->
+<section id="profil" class="py-16 sm:py-20 border-b border-line">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-[1fr_1.15fr] gap-14">
+
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-clay-600 mb-3">Profil</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-forest-800 leading-tight">
+        Tentang JDIH<br class="hidden sm:block"> Kabupaten Maybrat
+      </h2>
+      <p class="mt-6 text-muted leading-relaxed">
+        JDIH Kabupaten Maybrat dikelola oleh Bagian Hukum Sekretariat Daerah sebagai simpul resmi Jaringan Dokumentasi dan Informasi Hukum Nasional (JDIHN) di tingkat kabupaten, menghimpun seluruh produk hukum daerah agar tertib, mudah ditemukan, dan terbuka bagi publik.
+      </p>
+
+      <div class="mt-8 space-y-5">
+        <div class="flex gap-4">
+          <span class="shrink-0 w-9 h-9 rounded-full bg-forest-700 text-paper flex items-center justify-center text-xs"><i class="fa-solid fa-eye"></i></span>
+          <div>
+            <h3 class="font-display font-semibold text-forest-800">Visi</h3>
+            <p class="text-sm text-muted mt-1 leading-relaxed">Terwujudnya pengelolaan dokumen hukum daerah yang tertib, terintegrasi, dan mudah diakses masyarakat Kabupaten Maybrat.</p>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <span class="shrink-0 w-9 h-9 rounded-full bg-forest-700 text-paper flex items-center justify-center text-xs"><i class="fa-solid fa-bullseye"></i></span>
+          <div>
+            <h3 class="font-display font-semibold text-forest-800">Misi</h3>
+            <p class="text-sm text-muted mt-1 leading-relaxed">Menghimpun, mendokumentasikan, dan menyebarluaskan produk hukum daerah secara akurat dan berkelanjutan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- accordion -->
+    <div x-data="{ openIndex: 0 }" class="divide-y divide-line border-y border-line">
+      <template x-for="(faq, idx) in [
+          {t:'Tugas Pokok & Fungsi', c:'Menghimpun, mengelola, dan memutakhirkan dokumen hukum daerah, serta melayani permintaan informasi hukum dari aparatur dan masyarakat.'},
+          {t:'Dasar Hukum Pengelolaan JDIH', c:'Perpres Nomor 33 Tahun 2012 tentang Jaringan Dokumentasi dan Informasi Hukum Nasional, serta Peraturan Bupati Maybrat tentang Pengelolaan JDIH.'},
+          {t:'Struktur Tim Pengelola', c:'Diketuai oleh Kepala Bagian Hukum Setda, dibantu koordinator dokumentasi, verifikator produk hukum, dan admin teknis sistem.'},
+          {t:'Standar Operasional Prosedur', c:'Mengatur alur penerimaan naskah, verifikasi, persetujuan, hingga publikasi produk hukum ke dalam sistem JDIH.'}
+        ]" :key="idx">
+        <div>
+          <button @click="openIndex = openIndex === idx ? null : idx"
+                  class="w-full flex items-center justify-between gap-4 py-5 text-left">
+            <span class="font-display text-base sm:text-lg font-medium text-forest-800" x-text="faq.t"></span>
+            <i class="fa-solid text-forest-600 text-sm transition-transform" :class="openIndex === idx ? 'fa-minus' : 'fa-plus'"></i>
+          </button>
+          <div x-show="openIndex === idx" x-collapse>
+            <p class="pb-5 text-sm text-muted leading-relaxed max-w-lg" x-text="faq.c"></p>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATISTIK ============ -->
+<section id="statistik" class="py-16 sm:py-20 border-b border-line bg-forest-800 text-paper relative overflow-hidden">
+  <svg class="absolute -left-20 -bottom-24 w-[480px] h-[480px] opacity-[0.08]" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+    <path d="M20 300 Q100 250 140 280 T260 260 T380 300" stroke="#F7F8F5" stroke-width="1.5"/>
+    <path d="M0 250 Q90 200 150 235 T280 210 T400 250" stroke="#F7F8F5" stroke-width="1.5"/>
+    <path d="M10 200 Q110 150 160 190 T300 160 T400 195" stroke="#F7F8F5" stroke-width="1.5"/>
+  </svg>
+
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 relative">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-clay-300 mb-3">Statistik</p>
+    <h2 class="font-display text-3xl sm:text-4xl font-semibold max-w-lg leading-tight">Data Pengelolaan JDIH Sampai Saat Ini</h2>
+
+    <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
+      <div>
+        <i class="fa-solid fa-folder-open text-clay-300 mb-4 text-xl"></i>
+        <div class="font-display text-4xl font-semibold">312</div>
+        <div class="text-sm text-forest-100/70 mt-1">Total Produk Hukum</div>
+      </div>
+      <div>
+        <i class="fa-solid fa-scale-balanced text-clay-300 mb-4 text-xl"></i>
+        <div class="font-display text-4xl font-semibold">96</div>
+        <div class="text-sm text-forest-100/70 mt-1">Peraturan Daerah</div>
+      </div>
+      <div>
+        <i class="fa-solid fa-download text-clay-300 mb-4 text-xl"></i>
+        <div class="font-display text-4xl font-semibold">8.4K</div>
+        <div class="text-sm text-forest-100/70 mt-1">Dokumen Diunduh</div>
+      </div>
+      <div>
+        <i class="fa-solid fa-users text-clay-300 mb-4 text-xl"></i>
+        <div class="font-display text-4xl font-semibold">2.1K</div>
+        <div class="text-sm text-forest-100/70 mt-1">Pengunjung / Bulan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ============ BLOG / ARTIKEL, BERITA, & TUTORIAL ============ -->
+<section id="blog" class="py-16 sm:py-20 border-b border-line bg-white/40"
+  x-data="{
+    activeTab: 'semua',
+    posts: [
+      {
+        kategori: 'berita',
+        labelKategori: 'Berita',
+        badgeColor: 'bg-forest-100 text-forest-700',
+        tanggal: '18 Jul 2026',
+        // MODIFIKASI: Menambahkan path gambar
+        img: './img/sampul1.jpeg', 
+        judul: 'Bagian Hukum Gelar Sosialisasi Standar JDIHN kepada Perangkat Daerah',
+        ringkasan: 'Kegiatan diikuti oleh seluruh operator dokumen hukum dari dinas dan badan di lingkungan Pemkab Maybrat.'
+      },
+      {
+        kategori: 'tutorial',
+        labelKategori: 'Tutorial',
+        badgeColor: 'bg-clay-100 text-clay-700',
+        tanggal: '10 Jul 2026',
+        // MODIFIKASI: Menambahkan path gambar (contoh lain, silakan sesuaikan)
+        img: './img/sampul2.jpeg', 
+        judul: 'Panduan Praktis Cara Mencari dan Mengunduh Produk Hukum di Portal JDIH',
+        ringkasan: 'Langkah-langkah mudah bagi masyarakat untuk mengakses, melihat, serta mengunduh dokumen Perda dan Perbup.'
+      },
+      {
+        kategori: 'artikel',
+        labelKategori: 'Artikel',
+        badgeColor: 'bg-forest-50 text-forest-800 border border-forest-200',
+        tanggal: '05 Jul 2026',
+        // MODIFIKASI: Menambahkan path gambar (contoh lain, silakan sesuaikan)
+        img: './img/sampul3.jpeg', 
+        judul: 'Urgensi Digitalisasi Produk Hukum Daerah untuk Transparansi Publik',
+        ringkasan: 'Mengkaji bagaimana transformasi digital pada jaringan dokumentasi hukum dapat meningkatkan kesadaran hukum masyarakat.'
+      },
+      {
+        kategori: 'berita',
+        labelKategori: 'Berita',
+        badgeColor: 'bg-forest-100 text-forest-700',
+        tanggal: '02 Jul 2026',
+        img: './img/sampul4.jpeg', 
+        judul: 'Kunjungan Kerja Kanwil Kemenkumham Papua Barat Daya ke Bagian Hukum',
+        ringkasan: 'Membahas penguatan kelembagaan JDIH dan percepatan digitalisasi produk hukum daerah.'
+      },
+      {
+        kategori: 'tutorial',
+        labelKategori: 'Tutorial',
+        badgeColor: 'bg-clay-100 text-clay-700',
+        tanggal: '25 Jun 2026',
+        img: './img/sampul5.jpeg', 
+        judul: 'Memanfaatkan Fitur Filter dan Pencarian Spesifik Berdasarkan Tahun',
+        ringkasan: 'Tips dan trik menggunakan kolom pencarian agar Anda menemukan nomor peraturan yang akurat dengan cepat.'
+      },
+      {
+        kategori: 'artikel',
+        labelKategori: 'Artikel',
+        badgeColor: 'bg-forest-50 text-forest-800 border border-forest-200',
+        tanggal: '21 Jun 2026',
+        img: './img/sampul6.jpeg', 
+        judul: 'Menelaah Penetapan Rencana Tata Ruang Wilayah Kabupaten Maybrat 2024–2044',
+        ringkasan: 'Perda RTRW resmi diundangkan dan kini dapat dipelajari secara mendalam melalui portal JDIH.'
+      }
+    ]
+  }">
+  
+  <div class="max-w-6xl mx-auto px-5 sm:px-8">
+    <div class="flex items-end justify-between gap-6 flex-wrap mb-10">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-clay-600 mb-3">Pusat Informasi &amp; Publikasi</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-semibold text-forest-800">Artikel, Berita &amp; Tutorial</h2>
+      </div>
+
+      <!-- Filter Kategori Blog -->
+      <div class="flex flex-wrap gap-2">
+        <button @click="activeTab = 'semua'"
+                :class="activeTab === 'semua' ? 'bg-forest-700 text-paper border-forest-700' : 'bg-white text-ink/70 border-line hover:border-forest-400'"
+                class="px-4 py-2 rounded-full border text-sm font-medium transition-colors">
+          Semua
+        </button>
+        <button @click="activeTab = 'berita'"
+                :class="activeTab === 'berita' ? 'bg-forest-700 text-paper border-forest-700' : 'bg-white text-ink/70 border-line hover:border-forest-400'"
+                class="px-4 py-2 rounded-full border text-sm font-medium transition-colors">
+          Berita
+        </button>
+        <button @click="activeTab = 'artikel'"
+                :class="activeTab === 'artikel' ? 'bg-forest-700 text-paper border-forest-700' : 'bg-white text-ink/70 border-line hover:border-forest-400'"
+                class="px-4 py-2 rounded-full border text-sm font-medium transition-colors">
+          Artikel
+        </button>
+        <button @click="activeTab = 'tutorial'"
+                :class="activeTab === 'tutorial' ? 'bg-forest-700 text-paper border-forest-700' : 'bg-white text-ink/70 border-line hover:border-forest-400'"
+                class="px-4 py-2 rounded-full border text-sm font-medium transition-colors">
+          Tutorial
+        </button>
+      </div>
+    </div>
+
+    <!-- Grid Kartu Blog -->
+    <div class="grid md:grid-cols-3 gap-6">
+      <template x-for="post in posts.filter(p => activeTab === 'semua' || p.kategori === activeTab)" :key="post.judul">
+        <article class="border border-line rounded-2xl bg-white overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between">
+          <div>
+            <!-- MODIFIKASI: Header Gambar & Badge Kategori -->
+            <div class="h-40 bg-forest-50 overflow-hidden relative">
+              <img :src="post.img" :alt="post.judul" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105">
+              <span class="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm" 
+                    :class="post.badgeColor" 
+                    x-text="post.labelKategori">
+              </span>
+            </div>
+            
+            <!-- Konten Teks -->
+            <div class="p-6">
+              <span class="text-xs font-mono text-clay-600" x-text="post.tanggal"></span>
+              <h3 class="font-display text-lg font-semibold text-forest-800 mt-2 leading-snug" x-text="post.judul"></h3>
+              <p class="text-sm text-muted mt-2 leading-relaxed" x-text="post.ringkasan"></p>
+            </div>
+          </div>
+
+          <!-- Tombol Selengkapnya -->
+          <div class="px-6 pb-6 pt-0">
+            <a href="#" class="inline-flex items-center gap-2 text-xs font-semibold text-forest-700 hover:text-forest-900">
+              Baca selengkapnya <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+          </div>
+        </article>
+      </template>
+    </div>
+
+    <!-- Pesan jika kosong -->
+    <div x-show="posts.filter(p => activeTab === 'semua' || p.kategori === activeTab).length === 0" class="py-12 text-center text-sm text-muted">
+      Belum ada publikasi pada kategori ini.
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ KONTAK ============ -->
+<section id="kontak" class="py-16 sm:py-20">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-10">
+    <div>
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-clay-600 mb-3">Kontak</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-semibold text-forest-800">Hubungi Pengelola JDIH</h2>
+      <p class="mt-4 text-muted leading-relaxed max-w-md">Untuk pertanyaan, permintaan dokumen, atau masukan terkait sistem JDIH, silakan hubungi Bagian Hukum Sekretariat Daerah Kabupaten Maybrat.</p>
+
+      <ul class="mt-8 space-y-5 text-sm">
+        <li class="flex gap-4">
+          <span class="w-9 h-9 rounded-full bg-forest-50 text-forest-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-location-dot"></i></span>
+          <span class="text-ink/80 leading-relaxed pt-1.5">Kantor Bupati Kabupaten Maybrat<br>Kumurkek, Distrik Aifat, Kabupaten Maybrat, Papua Barat Daya</span>
+        </li>
+        <li class="flex gap-4">
+          <span class="w-9 h-9 rounded-full bg-forest-50 text-forest-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-phone"></i></span>
+          <span class="text-ink/80 pt-1.5">(0951) 123-456</span>
+        </li>
+        <li class="flex gap-4">
+          <span class="w-9 h-9 rounded-full bg-forest-50 text-forest-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-envelope"></i></span>
+          <span class="text-ink/80 pt-1.5">jdih@maybratkab.go.id</span>
+        </li>
+        <li class="flex gap-4">
+          <span class="w-9 h-9 rounded-full bg-forest-50 text-forest-700 flex items-center justify-center shrink-0"><i class="fa-solid fa-clock"></i></span>
+          <span class="text-ink/80 pt-1.5">Senin – Jumat, 08.00 – 16.00 WIT</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="relative rounded-2xl border border-line bg-forest-50 overflow-hidden min-h-[280px] flex items-center justify-center">
+      <svg class="absolute inset-0 w-full h-full opacity-20" viewBox="0 0 400 300" fill="none" aria-hidden="true">
+        <path d="M0 220 Q80 180 130 205 T260 190 T400 220" stroke="#1F3D2E" stroke-width="1.5"/>
+        <path d="M0 170 Q90 130 150 160 T280 140 T400 170" stroke="#1F3D2E" stroke-width="1.5"/>
+        <path d="M0 120 Q100 80 160 115 T300 90 T400 120" stroke="#1F3D2E" stroke-width="1.5"/>
+      </svg>
+      <div class="relative text-center px-6">
+        <span class="w-12 h-12 rounded-full bg-forest-700 text-paper flex items-center justify-center mx-auto text-lg">
+          <i class="fa-solid fa-map-pin"></i>
+        </span>
+        <p class="mt-4 font-display text-forest-800 font-medium">Kumurkek, Kabupaten Maybrat</p>
+        <p class="text-xs text-muted mt-1">Peta lokasi kantor — tautan Google Maps dapat ditambahkan pada versi produksi</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-forest-900 text-forest-100/80">
+  <div class="max-w-6xl mx-auto px-5 sm:px-8 py-14 grid md:grid-cols-[1.3fr_1fr_1fr] gap-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <span class="w-9 h-9 rounded-full bg-paper text-forest-800 flex items-center justify-center font-display font-semibold text-xs">KM</span>
+        <span class="font-display text-paper font-semibold">JDIH Kabupaten Maybrat</span>
+      </div>
+      <p class="text-sm leading-relaxed max-w-xs">Jaringan Dokumentasi dan Informasi Hukum — Bagian Hukum Sekretariat Daerah Kabupaten Maybrat, Provinsi Papua Barat Daya.</p>
+      <div class="flex gap-3 mt-6">
+        <a href="#" class="w-9 h-9 rounded-full border border-forest-100/20 flex items-center justify-center hover:bg-forest-100/10 transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full border border-forest-100/20 flex items-center justify-center hover:bg-forest-100/10 transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-sm"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full border border-forest-100/20 flex items-center justify-center hover:bg-forest-100/10 transition-colors" aria-label="YouTube"><i class="fa-brands fa-youtube text-sm"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-paper font-semibold text-sm mb-4">Tautan</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li><a href="#produk-hukum" class="hover:text-paper transition-colors">Produk Hukum</a></li>
+        <li><a href="#profil" class="hover:text-paper transition-colors">Profil JDIH</a></li>
+        <li><a href="#statistik" class="hover:text-paper transition-colors">Statistik</a></li>
+        <li><a href="https://jdihn.go.id" target="_blank" rel="noopener" class="hover:text-paper transition-colors">Portal JDIHN Nasional</a></li>
+        <li><a href="https://maybratkab.go.id" target="_blank" rel="noopener" class="hover:text-paper transition-colors">Situs Resmi Pemkab Maybrat</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-paper font-semibold text-sm mb-4">Kontak</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li class="flex items-center gap-2.5"><i class="fa-solid fa-envelope text-xs w-4"></i> jdih@maybratkab.go.id</li>
+        <li class="flex items-center gap-2.5"><i class="fa-solid fa-phone text-xs w-4"></i> (0951) 123-456</li>
+        <li class="flex items-center gap-2.5"><i class="fa-solid fa-location-dot text-xs w-4"></i> Kumurkek, Maybrat</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-forest-100/10">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-forest-100/60">
+      <p>&copy; 2026 Pemerintah Kabupaten Maybrat — Bagian Hukum Sekretariat Daerah. Prototipe tampilan.</p>
+      <p>Dikembangkan oleh <span class="text-paper font-medium">Nokensoft.com</span> — Papua IT Consultant</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Alpine store: shared filter state between category cards and the document register -->
+<script>
+  document.addEventListener('alpine:init', () => {
+    Alpine.store('catalog', { tab: 'semua' });
+  });
+</script>
+
+<!-- Alpine collapse plugin + core -->
+<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</body>
+</html>
