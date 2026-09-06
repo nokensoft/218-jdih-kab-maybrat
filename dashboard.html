@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin - JDIH Kabupaten Maybrat</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    [x-cloak] { display: none !important; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased" x-data="{ sidebarOpen: false }">
+
+  <div class="min-h-screen flex">
+
+    <!-- ============ SIDEBAR ============ -->
+    <!-- Overlay Mobile -->
+    <div x-show="sidebarOpen" x-cloak @click="sidebarOpen = false" 
+         class="fixed inset-0 bg-slate-900/50 z-40 lg:hidden transition-opacity"></div>
+
+    <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'" 
+           class="fixed lg:static inset-y-0 left-0 z-50 w-64 bg-slate-900 text-slate-300 flex flex-col transition-transform duration-300 ease-in-out lg:translate-x-0 shrink-0">
+      
+      <!-- Brand Logo -->
+      <div class="h-16 px-6 flex items-center justify-between border-b border-slate-800">
+        <a href="dashboard.html" class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center text-white text-xs font-bold">
+            <i class="fa-solid fa-scale-balanced"></i>
+          </span>
+          <span class="font-bold text-white text-base tracking-tight">Admin JDIH</span>
+        </a>
+        <button @click="sidebarOpen = false" class="lg:hidden text-slate-400 hover:text-white">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Navigation Menu -->
+      <div class="flex-1 overflow-y-auto px-4 py-6 space-y-8">
+        <!-- Main Nav -->
+        <div>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-slate-500 px-3 mb-3">Menu Utama</p>
+          <nav class="space-y-1">
+            <a href="dashboard.html" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-emerald-600 text-white font-medium text-sm">
+              <i class="fa-solid fa-chart-pie w-5"></i>
+              Dashboard
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors text-sm">
+              <i class="fa-solid fa-file-contract w-5"></i>
+              Produk Hukum
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors text-sm">
+              <i class="fa-solid fa-newspaper w-5"></i>
+              Berita & Artikel
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors text-sm">
+              <i class="fa-solid fa-chart-line w-5"></i>
+              Statistik & Laporan
+            </a>
+          </nav>
+        </div>
+
+        <!-- System & Config -->
+        <div>
+          <p class="text-[10px] font-bold uppercase tracking-wider text-slate-500 px-3 mb-3">Pengaturan</p>
+          <nav class="space-y-1">
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors text-sm">
+              <i class="fa-solid fa-network-wired w-5"></i>
+              Integrasi JDIHN
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors text-sm">
+              <i class="fa-solid fa-users w-5"></i>
+              Kelola Pengguna
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-800 hover:text-white transition-colors text-sm">
+              <i class="fa-solid fa-gear w-5"></i>
+              Pengaturan Situs
+            </a>
+          </nav>
+        </div>
+      </div>
+
+      <!-- User Profile & Logout -->
+      <div class="p-4 border-t border-slate-800">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-9 h-9 rounded-full bg-slate-700 flex items-center justify-center font-bold text-white text-sm">
+            AD
+          </div>
+          <div class="overflow-hidden">
+            <p class="text-sm font-medium text-white truncate">Admin Bagian Hukum</p>
+            <p class="text-xs text-slate-400 truncate">admin@maybratkab.go.id</p>
+          </div>
+        </div>
+        <a href="login.html" class="flex items-center justify-center gap-2 w-full py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white rounded-lg text-xs font-medium transition-colors">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          Keluar
+        </a>
+      </div>
+
+    </aside>
+
+    <!-- ============ MAIN CONTENT AREA ============ -->
+    <div class="flex-1 flex flex-col min-w-0">
+
+      <!-- Top Header -->
+      <header class="h-16 bg-white border-b border-slate-200 px-4 sm:px-8 flex items-center justify-between sticky top-0 z-30">
+        <div class="flex items-center gap-4">
+          <button @click="sidebarOpen = true" class="lg:hidden text-slate-600 hover:text-slate-900">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+          <h1 class="text-lg font-bold text-slate-800">Ringkasan Sistem</h1>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="index.html" target="_blank" class="hidden sm:inline-flex items-center gap-2 text-xs font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 px-3 py-2 rounded-lg transition-colors">
+            <i class="fa-solid fa-globe"></i>
+            Lihat Website
+          </a>
+          <button class="w-9 h-9 rounded-lg border border-slate-200 text-slate-600 flex items-center justify-center hover:bg-slate-50 transition-colors relative">
+            <i class="fa-regular fa-bell text-sm"></i>
+            <span class="absolute top-2 right-2 w-2 h-2 bg-rose-500 rounded-full"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Content Body -->
+      <main class="flex-1 p-4 sm:p-8 space-y-8 overflow-y-auto">
+
+        <!-- Banner Selamat Datang -->
+        <div class="bg-emerald-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-sm">
+          <div>
+            <span class="inline-block px-3 py-1 bg-emerald-800/80 text-emerald-200 text-xs font-semibold rounded-full mb-3">Status Sinkronisasi: Aktif</span>
+            <h2 class="text-2xl font-bold">Selamat Datang, Pengelola JDIH</h2>
+            <p class="text-emerald-100 text-sm mt-1 max-w-xl">
+              Sistem telah terhubung dengan Portal JDIHN Nasional. Terdapat 3 dokumen hukum baru yang membutuhkan verifikasi publikasi hari ini.
+            </p>
+          </div>
+          <a href="#" class="shrink-0 bg-white text-emerald-900 font-semibold px-4 py-2.5 rounded-xl text-sm hover:bg-emerald-50 transition-colors shadow-sm flex items-center gap-2">
+            <i class="fa-solid fa-plus text-xs"></i>
+            Tambah Dokumen Hukum
+          </a>
+        </div>
+
+        <!-- Kartu Statistik -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Stat 1 -->
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-slate-400">Total Produk Hukum</span>
+              <span class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm"><i class="fa-solid fa-scale-balanced"></i></span>
+            </div>
+            <div class="mt-4">
+              <span class="text-2xl font-bold text-slate-800">1,248</span>
+              <span class="text-xs text-emerald-600 font-semibold ml-2"><i class="fa-solid fa-arrow-up"></i> +12%</span>
+            </div>
+          </div>
+
+          <!-- Stat 2 -->
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-slate-400">Peraturan Bupati</span>
+              <span class="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-sm"><i class="fa-solid fa-file-signature"></i></span>
+            </div>
+            <div class="mt-4">
+              <span class="text-2xl font-bold text-slate-800">432</span>
+              <span class="text-xs text-slate-500 ml-2">Dokumen</span>
+            </div>
+          </div>
+
+          <!-- Stat 3 -->
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-slate-400">Peraturan Daerah</span>
+              <span class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm"><i class="fa-solid fa-gavel"></i></span>
+            </div>
+            <div class="mt-4">
+              <span class="text-2xl font-bold text-slate-800">186</span>
+              <span class="text-xs text-slate-500 ml-2">Dokumen</span>
+            </div>
+          </div>
+
+          <!-- Stat 4 -->
+          <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase text-slate-400">Total Diunduh</span>
+              <span class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-sm"><i class="fa-solid fa-download"></i></span>
+            </div>
+            <div class="mt-4">
+              <span class="text-2xl font-bold text-slate-800">24.8k</span>
+              <span class="text-xs text-emerald-600 font-semibold ml-2"><i class="fa-solid fa-arrow-up"></i> +5.4%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabel Dokumen Terbaru -->
+        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100">
+            <div>
+              <h3 class="font-bold text-slate-800 text-base">Dokumen Hukum Terbaru</h3>
+              <p class="text-xs text-slate-500 mt-0.5">Daftar unggahan dokumen legalitas daerah paling akhir</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <input type="text" placeholder="Cari dokumen..." class="px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-emerald-600">
+              <a href="#" class="text-xs font-medium text-emerald-700 hover:text-emerald-800">Lihat Semua</a>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm text-slate-600">
+              <thead class="bg-slate-50 text-xs uppercase font-semibold text-slate-500 border-b border-slate-100">
+                <tr>
+                  <th class="px-6 py-3.5">Judul Produk Hukum</th>
+                  <th class="px-6 py-3.5">Kategori</th>
+                  <th class="px-6 py-3.5">Tahun</th>
+                  <th class="px-6 py-3.5">Status</th>
+                  <th class="px-6 py-3.5 text-right">Aksi</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr class="hover:bg-slate-50/80 transition-colors">
+                  <td class="px-6 py-4 font-medium text-slate-800 max-w-xs truncate">
+                    Perbup No. 14 Tahun 2024 tentang Tata Cara Pengelolaan Keuangan Kampung
+                  </td>
+                  <td class="px-6 py-4 text-xs">Peraturan Bupati</td>
+                  <td class="px-6 py-4 text-xs">2024</td>
+                  <td class="px-6 py-4">
+                    <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full text-[11px] font-medium">Terpublikasi</span>
+                  </td>
+                  <td class="px-6 py-4 text-right space-x-2">
+                    <button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-pen"></i></button>
+                    <button class="text-slate-400 hover:text-rose-600"><i class="fa-solid fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 transition-colors">
+                  <td class="px-6 py-4 font-medium text-slate-800 max-w-xs truncate">
+                    Perda No. 03 Tahun 2024 tentang Rencana Tata Ruang Wilayah Kabupaten Maybrat
+                  </td>
+                  <td class="px-6 py-4 text-xs">Peraturan Daerah</td>
+                  <td class="px-6 py-4 text-xs">2024</td>
+                  <td class="px-6 py-4">
+                    <span class="px-2.5 py-1 bg-amber-100 text-amber-800 rounded-full text-[11px] font-medium">Draft Verifikasi</span>
+                  </td>
+                  <td class="px-6 py-4 text-right space-x-2">
+                    <button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-pen"></i></button>
+                    <button class="text-slate-400 hover:text-rose-600"><i class="fa-solid fa-trash"></i></button>
+                  </td>
+                </tr>
+                <tr class="hover:bg-slate-50/80 transition-colors">
+                  <td class="px-6 py-4 font-medium text-slate-800 max-w-xs truncate">
+                    Kepbup No. 88 Tahun 2023 tentang Pembentukan Tim Pengelola JDIH
+                  </td>
+                  <td class="px-6 py-4 text-xs">Keputusan Bupati</td>
+                  <td class="px-6 py-4 text-xs">2023</td>
+                  <td class="px-6 py-4">
+                    <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full text-[11px] font-medium">Terpublikasi</span>
+                  </td>
+                  <td class="px-6 py-4 text-right space-x-2">
+                    <button class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-pen"></i></button>
+                    <button class="text-slate-400 hover:text-rose-600"><i class="fa-solid fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
