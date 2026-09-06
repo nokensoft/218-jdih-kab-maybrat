@@ -6,6 +6,8 @@
 <title>JDIH Kabupaten Maybrat — Jaringan Dokumentasi dan Informasi Hukum</title>
 <meta name="description" content="Portal Jaringan Dokumentasi dan Informasi Hukum (JDIH) Kabupaten Maybrat, Provinsi Papua Barat Daya. Diselenggarakan oleh Bagian Hukum Sekretariat Daerah." />
 
+<link rel="icon" type="image/webp" href="./img/logo.webp">
+
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,81 +155,90 @@
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section id="beranda" class="relative pt-[72px] h-[450px] flex items-center justify-center overflow-hidden border-b border-line bg-cover bg-center" style="background-image: url('./img/danau.png');">
-  <!-- Overlay opsional agar teks lebih terbaca jika background terlalu terang/ramai -->
-  <div class="absolute inset-0 bg-dark/70" aria-hidden="true"></div>
-
-  <div class="contour-bg absolute inset-0 pointer-events-none" aria-hidden="true">
-    <svg class="absolute -right-24 -top-20 w-[560px] h-[560px] opacity-[0.09]" viewBox="0 0 400 400" fill="none">
-      <path d="M20 300 Q100 250 140 280 T260 260 T380 300" stroke="#1F3D2E" stroke-width="1.5"/>
-      <path d="M0 250 Q90 200 150 235 T280 210 T400 250" stroke="#1F3D2E" stroke-width="1.5"/>
-      <path d="M10 200 Q110 150 160 190 T300 160 T400 195" stroke="#1F3D2E" stroke-width="1.5"/>
-      <path d="M0 150 Q120 95 170 140 T310 110 T400 145" stroke="#1F3D2E" stroke-width="1.5"/>
-      <path d="M20 100 Q130 45 180 90 T320 60 T400 95" stroke="#1F3D2E" stroke-width="1.5"/>
-      <path d="M40 55 Q140 5 190 45 T330 20 T400 50" stroke="#1F3D2E" stroke-width="1.5"/>
-    </svg>
-  </div>
-
-  <div class="max-w-6xl mx-auto px-5 sm:px-8 relative text-center flex flex-col items-center">
-    <!-- <p class="rise-in inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-clay-600 mb-3">
-      <span class="w-6 h-px bg-clay-500"></span>
-      Sekretariat Daerah · Kabupaten Maybrat · Papua Barat Daya
-      <span class="w-6 h-px bg-clay-500"></span>
-    </p>
-
-    <h1 class="rise-in-delay-1 font-display text-3xl sm:text-4xl lg:text-[2.8rem] leading-[1.08] font-semibold text-forest-800 max-w-3xl">
-      Jaringan Dokumentasi dan
-      <span class="italic font-medium text-forest-500">Informasi Hukum</span>
-      Kabupaten Maybrat
-    </h1> -->
-
-    <p class="rise-in-delay-2 mt-4 text-sm sm:text-base text-white max-w-2xl leading-relaxed">
-      Satu pintu resmi untuk mencari, membaca, dan mengunduh produk hukum daerah — Peraturan Daerah, Peraturan Bupati, Keputusan Bupati, hingga Surat Edaran — dikelola oleh Bagian Hukum Sekretariat Daerah Kabupaten Maybrat.
-    </p>
-
-    <!-- Search -->
-    <form class="rise-in-delay-3 mt-6 max-w-2xl w-full" onsubmit="return false">
-      <label for="search" class="sr-only">Cari produk hukum</label>
-      <div class="flex items-center gap-3 bg-white border border-line rounded-2xl p-2 pl-5 shadow-sm focus-within:border-forest-500 transition-colors">
-        <i class="fa-solid fa-magnifying-glass text-white"></i>
-        <input id="search" type="text" placeholder="Cari nama, nomor, atau tahun peraturan…"
-               class="flex-1 bg-transparent outline-none text-sm sm:text-base placeholder:text-white/70 py-1.5" />
-        <button type="submit" class="shrink-0 bg-forest-700 hover:bg-forest-800 text-paper text-sm font-semibold rounded-xl px-5 py-2 transition-colors">
-          Cari
-        </button>
-      </div>
-      <div class="mt-3 flex flex-wrap justify-center items-center gap-2 text-xs">
-        <span class="text-white mr-1">Pencarian populer:</span>
-        <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 transition-colors">APBD</a>
-        <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 transition-colors">RTRW</a>
-        <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 transition-colors">Organisasi Perangkat Daerah</a>
-        <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 transition-colors">Dana Kampung</a>
-      </div>
-    </form>
-
-    <!-- quick stats strip -->
-    <dl class="mt-8 grid grid-cols-3 max-w-xl w-full gap-6 border-t border-line pt-6">
-      <div>
-        <dt class="text-xs uppercase tracking-wide text-white">Total Dokumen</dt>
-        <dd class="font-display text-xl sm:text-2xl font-semibold text-white mt-1">312</dd>
-      </div>
-      <div>
-        <dt class="text-xs uppercase tracking-wide text-white">Perda Berlaku</dt>
-        <dd class="font-display text-xl sm:text-2xl font-semibold text-white mt-1">96</dd>
-      </div>
-      <div>
-        <dt class="text-xs uppercase tracking-wide text-white">Diperbarui</dt>
-        <dd class="font-display text-xl sm:text-2xl font-semibold text-white mt-1">2026</dd>
-      </div>
-    </dl>
-  </div>
-</section>
 
 
 
 
-<!-- ============ KATEGORI ============ -->
+
+  <!-- ============ HERO ============ -->
+  <section id="beranda" class="relative pt-[72px] h-[500px] flex items-center justify-center overflow-hidden border-b border-line bg-cover bg-center" style="background-image: url('./img/kantor-bupati-maybrat.png');">
+
+    <div class="contour-bg absolute inset-0 pointer-events-none" aria-hidden="true">
+      <svg class="absolute -right-24 -top-20 w-[560px] h-[560px] opacity-[0.09]" viewBox="0 0 400 400" fill="none">
+        <path d="M20 300 Q100 250 140 280 T260 260 T380 300" stroke="#1F3D2E" stroke-width="1.5"/>
+        <path d="M0 250 Q90 200 150 235 T280 210 T400 250" stroke="#1F3D2E" stroke-width="1.5"/>
+        <path d="M10 200 Q110 150 160 190 T300 160 T400 195" stroke="#1F3D2E" stroke-width="1.5"/>
+        <path d="M0 150 Q120 95 170 140 T310 110 T400 145" stroke="#1F3D2E" stroke-width="1.5"/>
+        <path d="M20 100 Q130 45 180 90 T320 60 T400 95" stroke="#1F3D2E" stroke-width="1.5"/>
+        <path d="M40 55 Q140 5 190 45 T330 20 T400 50" stroke="#1F3D2E" stroke-width="1.5"/>
+      </svg>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 relative text-center flex flex-col items-center">
+      <!-- Judul -->
+      <h1 class="rise-in-delay-1 font-display text-4xl sm:text-5xl font-bold text-white leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+        Jaringan Dokumentasi dan Informasi Hukum
+      </h1>
+      <!-- Keterangan Singkat -->
+      <p class="rise-in-delay-2 mt-4 text-sm sm:text-base text-white max-w-2xl leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+        Satu pintu resmi untuk mencari, membaca, dan mengunduh produk hukum daerah — Peraturan Daerah, Peraturan Bupati, Keputusan Bupati, hingga Surat Edaran — dikelola oleh Bagian Hukum Sekretariat Daerah Kabupaten Maybrat.
+      </p>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- ============ SEARCH & STATS SECTION ============ -->
+  <section class="py-10 bg-gray-50 border-b border-line">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 flex flex-col items-center">
+      <!-- Search Form -->
+      <form class="max-w-2xl w-full" onsubmit="return false">
+        <label for="search" class="sr-only">Cari produk hukum</label>
+        <div class="flex items-center gap-3 bg-white border border-line rounded-2xl p-2 pl-5 shadow-sm focus-within:border-forest-500 transition-colors">
+          <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+          <input id="search" type="text" placeholder="Cari nama, nomor, atau tahun peraturan…"
+                class="flex-1 bg-transparent outline-none text-sm sm:text-base placeholder:text-gray-400 py-1.5 text-gray-900" />
+          <button type="submit" class="shrink-0 bg-forest-700 hover:bg-forest-800 text-white text-sm font-semibold rounded-xl px-5 py-2 transition-colors">
+            Cari
+          </button>
+        </div>
+        <div class="mt-3 flex flex-wrap justify-center items-center gap-2 text-xs">
+          <span class="text-gray-600 mr-1">Pencarian populer:</span>
+          <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 text-gray-700 transition-colors shadow-sm">APBD</a>
+          <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 text-gray-700 transition-colors shadow-sm">RTRW</a>
+          <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 text-gray-700 transition-colors shadow-sm">Organisasi Perangkat Daerah</a>
+          <a href="#produk-hukum" class="px-3 py-1 rounded-full border border-line bg-white hover:border-forest-400 hover:text-forest-700 text-gray-700 transition-colors shadow-sm">Dana Kampung</a>
+        </div>
+      </form>
+
+      <!-- Quick Stats Strip -->
+      <dl class="mt-8 grid grid-cols-3 max-w-xl w-full gap-6 border-t border-line pt-6 text-center">
+        <div>
+          <dt class="text-xs uppercase tracking-wide text-gray-500">Total Dokumen</dt>
+          <dd class="font-display text-xl sm:text-2xl font-semibold text-gray-900 mt-1">312</dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wide text-gray-500">Perda Berlaku</dt>
+          <dd class="font-display text-xl sm:text-2xl font-semibold text-gray-900 mt-1">96</dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wide text-gray-500">Diperbarui</dt>
+          <dd class="font-display text-xl sm:text-2xl font-semibold text-gray-900 mt-1">2026</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+
+
+
+
+
+  
+
+  <!-- ============ KATEGORI ============ -->
 <section class="py-16 sm:py-20 border-b border-line" x-data>
   <div class="max-w-6xl mx-auto px-5 sm:px-8">
     <div class="flex items-end justify-between gap-6 flex-wrap mb-10">
@@ -235,10 +246,11 @@
         <p class="text-xs font-semibold uppercase tracking-[0.18em] text-clay-600 mb-3">Kategori</p>
         <h2 class="font-display text-3xl sm:text-4xl font-semibold text-forest-800">Jelajahi Produk Hukum</h2>
       </div>
-      <p class="text-sm text-muted max-w-sm">Empat jenis produk hukum daerah yang tersedia secara terbuka bagi aparatur dan masyarakat.</p>
+      <p class="text-sm text-muted max-w-sm">Tujuh jenis produk dan dokumen hukum daerah yang tersedia secara terbuka bagi aparatur dan masyarakat.</p>
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- 1. Peraturan Daerah -->
       <a href="#produk-hukum" @click="$store.catalog.tab = 'perda'" class="cat-card group border border-line bg-white rounded-2xl p-6 hover:border-forest-500 hover:shadow-md transition-all">
         <div class="w-11 h-11 rounded-xl bg-forest-50 text-forest-700 flex items-center justify-center mb-5 group-hover:bg-forest-700 group-hover:text-paper transition-colors">
           <i class="fa-solid fa-scale-balanced"></i>
@@ -248,6 +260,7 @@
         <span class="mt-4 inline-block text-xs font-mono text-clay-600">96 dokumen</span>
       </a>
 
+      <!-- 2. Peraturan Bupati -->
       <a href="#produk-hukum" @click="$store.catalog.tab = 'perbup'" class="cat-card group border border-line bg-white rounded-2xl p-6 hover:border-forest-500 hover:shadow-md transition-all">
         <div class="w-11 h-11 rounded-xl bg-forest-50 text-forest-700 flex items-center justify-center mb-5 group-hover:bg-forest-700 group-hover:text-paper transition-colors">
           <i class="fa-solid fa-file-signature"></i>
@@ -257,22 +270,54 @@
         <span class="mt-4 inline-block text-xs font-mono text-clay-600">148 dokumen</span>
       </a>
 
+      <!-- 3. Keputusan Bupati -->
       <a href="#produk-hukum" @click="$store.catalog.tab = 'kepbup'" class="cat-card group border border-line bg-white rounded-2xl p-6 hover:border-forest-500 hover:shadow-md transition-all">
         <div class="w-11 h-11 rounded-xl bg-forest-50 text-forest-700 flex items-center justify-center mb-5 group-hover:bg-forest-700 group-hover:text-paper transition-colors">
           <i class="fa-solid fa-stamp"></i>
         </div>
         <h3 class="font-display text-lg font-semibold text-forest-800">Keputusan Bupati</h3>
-        <p class="mt-2 text-sm text-muted leading-relaxed">Penetapan yang bersifat administratif, seperti pengangkatan dan penunjukan.</p>
+        <p class="mt-2 text-sm text-muted leading-relaxed">Penetapan yang bersifat konkret, individual, dan final terkait administrasi.</p>
         <span class="mt-4 inline-block text-xs font-mono text-clay-600">54 dokumen</span>
       </a>
 
+      <!-- 4. Instruksi Bupati -->
+      <a href="#produk-hukum" @click="$store.catalog.tab = 'inbup'" class="cat-card group border border-line bg-white rounded-2xl p-6 hover:border-forest-500 hover:shadow-md transition-all">
+        <div class="w-11 h-11 rounded-xl bg-forest-50 text-forest-700 flex items-center justify-center mb-5 group-hover:bg-forest-700 group-hover:text-paper transition-colors">
+          <i class="fa-solid fa-bullhorn"></i>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-forest-800">Instruksi Bupati</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">Arahan atau perintah pelaksanaan kebijakan khusus kepada jajaran perangkat daerah.</p>
+        <span class="mt-4 inline-block text-xs font-mono text-clay-600">22 dokumen</span>
+      </a>
+
+      <!-- 5. MOU -->
+      <a href="#produk-hukum" @click="$store.catalog.tab = 'mou'" class="cat-card group border border-line bg-white rounded-2xl p-6 hover:border-forest-500 hover:shadow-md transition-all">
+        <div class="w-11 h-11 rounded-xl bg-forest-50 text-forest-700 flex items-center justify-center mb-5 group-hover:bg-forest-700 group-hover:text-paper transition-colors">
+          <i class="fa-solid fa-handshake"></i>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-forest-800">MOU</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">Nota kesepahaman dan kerja sama antarlembaga, instansi, atau pihak ketiga.</p>
+        <span class="mt-4 inline-block text-xs font-mono text-clay-600">31 dokumen</span>
+      </a>
+
+      <!-- 6. NPHD -->
+      <a href="#produk-hukum" @click="$store.catalog.tab = 'nphd'" class="cat-card group border border-line bg-white rounded-2xl p-6 hover:border-forest-500 hover:shadow-md transition-all">
+        <div class="w-11 h-11 rounded-xl bg-forest-50 text-forest-700 flex items-center justify-center mb-5 group-hover:bg-forest-700 group-hover:text-paper transition-colors">
+          <i class="fa-solid fa-file-invoice-dollar"></i>
+        </div>
+        <h3 class="font-display text-lg font-semibold text-forest-800">NPHD</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">Naskah Perjanjian Hibah Daerah untuk penyaluran dana hibah pemerintah daerah.</p>
+        <span class="mt-4 inline-block text-xs font-mono text-clay-600">45 dokumen</span>
+      </a>
+
+      <!-- 7. Surat Edaran Bupati -->
       <a href="#produk-hukum" @click="$store.catalog.tab = 'se'" class="cat-card group border border-line bg-white rounded-2xl p-6 hover:border-forest-500 hover:shadow-md transition-all">
         <div class="w-11 h-11 rounded-xl bg-forest-50 text-forest-700 flex items-center justify-center mb-5 group-hover:bg-forest-700 group-hover:text-paper transition-colors">
           <i class="fa-solid fa-envelope-open-text"></i>
         </div>
-        <h3 class="font-display text-lg font-semibold text-forest-800">Surat Edaran</h3>
-        <p class="mt-2 text-sm text-muted leading-relaxed">Pemberitahuan dan arahan resmi kepada perangkat daerah dan instansi terkait.</p>
-        <span class="mt-4 inline-block text-xs font-mono text-clay-600">14 dokumen</span>
+        <h3 class="font-display text-lg font-semibold text-forest-800">Surat Edaran Bupati</h3>
+        <p class="mt-2 text-sm text-muted leading-relaxed">Pemberitahuan dan petunjuk resmi bagi aparatur sipil dan instansi terkait.</p>
+        <span class="mt-4 inline-block text-xs font-mono text-clay-600">18 dokumen</span>
       </a>
     </div>
   </div>
@@ -291,9 +336,10 @@
            {kat:'perda', pd:'sekretariat', kode:'Perda No. 4 / 2025', judul:'Anggaran Pendapatan dan Belanja Daerah Kabupaten Maybrat Tahun Anggaran 2026', tahun:'2025', status:'Berlaku'},
            {kat:'perda', pd:'pupr', kode:'Perda No. 2 / 2024', judul:'Rencana Tata Ruang Wilayah Kabupaten Maybrat Tahun 2024–2044', tahun:'2024', status:'Berlaku'},
            {kat:'perbup', pd:'dinas-sosial', kode:'Perbup No. 18 / 2025', judul:'Petunjuk Pelaksanaan Pengelolaan Dana Otonomi Khusus Kampung', tahun:'2025', status:'Berlaku'},
-           {kat:'perbup', pd:'sekretariat', kode:'Perbup No. 11 / 2025', judul:'Kedudukan, Susunan Organisasi, dan Tata Kerja Perangkat Daerah', tahun:'2025', status:'Berlaku'},
+           {kat:'inbup', pd:'sekretariat', kode:'Inbup No. 3 / 2025', judul:'Percepatan Penyerapan Anggaran dan Pelaksanaan Program Strategis Daerah', tahun:'2025', status:'Berlaku'},
+           {kat:'mou', pd:'sekretariat', kode:'MOU No. 01 / 2025', judul:'Kesepahaman Bersama Pengembangan Layanan Digitalisasi Daerah', tahun:'2025', status:'Berlaku'},
+           {kat:'nphd', pd:'kesbangpol', kode:'NPHD No. 900 / 2024', judul:'Pemberian Hibah Daerah dalam Rangka Penyelenggaraan Pengawasan Pemilu', tahun:'2024', status:'Berlaku'},
            {kat:'kepbup', pd:'sekretariat', kode:'Kepbup No. 220 / 2025', judul:'Penetapan Tim Pengelola JDIH Kabupaten Maybrat', tahun:'2025', status:'Berlaku'},
-           {kat:'perda', pd:'pendidikan', kode:'Perda No. 7 / 2023', judul:'Penyelenggaraan Pendidikan Dasar di Kabupaten Maybrat', tahun:'2023', status:'Berlaku'},
            {kat:'se', pd:'kependudukan', kode:'SE No. 470 / 2025', judul:'Percepatan Pemutakhiran Data Kependudukan Tingkat Distrik', tahun:'2025', status:'Berlaku'},
            {kat:'perbup', pd:'kesehatan', kode:'Perbup No. 5 / 2021', judul:'Standar Pelayanan Minimal Bidang Kesehatan', tahun:'2021', status:'Dicabut'}
          ]
@@ -311,10 +357,13 @@
         <div class="relative">
           <select x-model="tab" class="appearance-none bg-white border border-line text-ink/80 text-sm font-medium rounded-xl px-4 py-2.5 pr-10 focus:outline-none focus:border-forest-500 shadow-sm transition-colors cursor-pointer">
             <option value="semua">Semua Kategori</option>
-            <option value="perda">Perda</option>
-            <option value="perbup">Perbup</option>
-            <option value="kepbup">Kepbup</option>
-            <option value="se">SE</option>
+            <option value="perda">Peraturan Daerah</option>
+            <option value="perbup">Peraturan Bupati</option>
+            <option value="kepbup">Keputusan Bupati</option>
+            <option value="inbup">Instruksi Bupati</option>
+            <option value="mou">MOU</option>
+            <option value="nphd">NPHD</option>
+            <option value="se">Surat Edaran Bupati</option>
           </select>
           <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-muted">
             <i class="fa-solid fa-chevron-down text-xs"></i>
@@ -331,6 +380,7 @@
             <option value="kesehatan">Dinas Kesehatan</option>
             <option value="dinas-sosial">Dinas Sosial</option>
             <option value="kependudukan">Dinas Dukcapil</option>
+            <option value="kesbangpol">Kesbangpol</option>
           </select>
           <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-muted">
             <i class="fa-solid fa-chevron-down text-xs"></i>
@@ -391,7 +441,7 @@
         Tentang JDIH<br class="hidden sm:block"> Kabupaten Maybrat
       </h2>
       <p class="mt-6 text-muted leading-relaxed">
-        JDIH Kabupaten Maybrat dikelola oleh Bagian Hukum Sekretariat Daerah sebagai simpul resmi Jaringan Dokumentasi dan Informasi Hukum Nasional (JDIHN) di tingkat kabupaten, menghimpun seluruh produk hukum daerah agar tertib, mudah ditemukan, dan terbuka bagi publik.
+        JDIH Kabupaten Maybrat dikelola oleh Bagian Hukum Sekretariat Daerah sebagai simpul resmi Jaringan Dokumentasi dan Informasi Hukum Nasional (JDIHN) di tingkat kabupaten, menghimpun seluruh produk dan naskah hukum daerah agar tertib, mudah ditemukan, dan terbuka bagi publik.
       </p>
 
       <div class="mt-8 space-y-5">
@@ -406,7 +456,7 @@
           <span class="shrink-0 w-9 h-9 rounded-full bg-forest-700 text-paper flex items-center justify-center text-xs"><i class="fa-solid fa-bullseye"></i></span>
           <div>
             <h3 class="font-display font-semibold text-forest-800">Misi</h3>
-            <p class="text-sm text-muted mt-1 leading-relaxed">Menghimpun, mendokumentasikan, dan menyebarluaskan produk hukum daerah secara akurat dan berkelanjutan.</p>
+            <p class="text-sm text-muted mt-1 leading-relaxed">Menghimpun, mendokumentasikan, dan menyebarluaskan Perda, Perbup, Kepbup, Inbup, MOU, NPHD, hingga Surat Edaran secara akurat dan berkelanjutan.</p>
           </div>
         </div>
       </div>
@@ -415,7 +465,7 @@
     <!-- accordion -->
     <div x-data="{ openIndex: 0 }" class="divide-y divide-line border-y border-line">
       <template x-for="(faq, idx) in [
-          {t:'Tugas Pokok & Fungsi', c:'Menghimpun, mengelola, dan memutakhirkan dokumen hukum daerah, serta melayani permintaan informasi hukum dari aparatur dan masyarakat.'},
+          {t:'Tugas Pokok & Fungsi', c:'Menghimpun, mengelola, dan memutakhirkan dokumen hukum daerah (Perda, Perbup, Kepbup, Inbup, MOU, NPHD, dan SE), serta melayani permintaan informasi hukum dari aparatur dan masyarakat.'},
           {t:'Dasar Hukum Pengelolaan JDIH', c:'Perpres Nomor 33 Tahun 2012 tentang Jaringan Dokumentasi dan Informasi Hukum Nasional, serta Peraturan Bupati Maybrat tentang Pengelolaan JDIH.'},
           {t:'Struktur Tim Pengelola', c:'Diketuai oleh Kepala Bagian Hukum Setda, dibantu koordinator dokumentasi, verifikator produk hukum, dan admin teknis sistem.'},
           {t:'Standar Operasional Prosedur', c:'Mengatur alur penerimaan naskah, verifikasi, persetujuan, hingga publikasi produk hukum ke dalam sistem JDIH.'}
@@ -450,13 +500,16 @@
     <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
       <div>
         <i class="fa-solid fa-folder-open text-clay-300 mb-4 text-xl"></i>
-        <div class="font-display text-4xl font-semibold">312</div>
-        <div class="text-sm text-forest-100/70 mt-1">Total Produk Hukum</div>
+        <div class="font-display text-4xl font-semibold">414</div>
+        <div class="text-sm text-forest-100/70 mt-1">Total Produk & Dokumentasi</div>
       </div>
       <div>
-        <i class="fa-solid fa-scale-balanced text-clay-300 mb-4 text-xl"></i>
-        <div class="font-display text-4xl font-semibold">96</div>
-        <div class="text-sm text-forest-100/70 mt-1">Peraturan Daerah</div>
+        <div class="flex gap-2 items-center text-clay-300 mb-4 text-xl">
+          <i class="fa-solid fa-scale-balanced"></i>
+          <i class="fa-solid fa-handshake text-base"></i>
+        </div>
+        <div class="font-display text-4xl font-semibold">7 Jenis</div>
+        <div class="text-sm text-forest-100/70 mt-1">Kategori Dokumen Legal</div>
       </div>
       <div>
         <i class="fa-solid fa-download text-clay-300 mb-4 text-xl"></i>
@@ -471,6 +524,11 @@
     </div>
   </div>
 </section>
+
+
+
+
+
 
 
 
